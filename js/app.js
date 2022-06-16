@@ -13,6 +13,16 @@
             document.documentElement.classList.add(className);
         }));
     }
+    function burgerInit() {
+        const mobileNavButton = document.querySelector(".mobile-nav-button");
+        const mobileNavIcon = document.querySelector(".mobile-nav-button__icon");
+        const mobileNavWrapper = document.querySelector(".mobile-nav-wrapper");
+        mobileNavButton.addEventListener("click", (function(e) {
+            mobileNavIcon.classList.toggle("active");
+            mobileNavWrapper.classList.toggle("active");
+            document.body.classList.toggle("no-scroll");
+        }));
+    }
     let addWindowScrollEvent = false;
     setTimeout((() => {
         if (addWindowScrollEvent) {
@@ -120,4 +130,5 @@
     da.init();
     window["FLS"] = true;
     isWebp();
+    burgerInit();
 })();

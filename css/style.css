@@ -335,55 +335,88 @@ h6 {
   text-decoration: underline;
 }
 
-/*
-.icon-menu {
-	display: none;
-	@media (max-width: $mobile) {
-		display: block;
-		position: relative;
-		width: rem(30);
-		height: rem(18);
-		cursor: pointer;
-		z-index: 5;
-		span,
-		&::before,
-		&::after {
-			content: "";
-			transition: all 0.3s ease 0s;
-			right: 0;
-			position: absolute;
-			width: 100%;
-			height: rem(2);
-			background-color: #000;
-		}
-		&::before {
-			top: 0;
-		}
-		&::after {
-			bottom: 0;
-		}
-		span {
-			top: calc(50% - rem(1));
-		}
-		.menu-open & {
-			span {
-				width: 0;
-			}
-			&::before,
-			&::after {
-			}
-			&::before {
-				top: calc(50% - rem(1));
-				transform: rotate(-45deg);
-			}
-			&::after {
-				bottom: calc(50% - rem(1));
-				transform: rotate(45deg);
-			}
-		}
-	}
+.mobile-nav-button {
+  /* Reset for button */
+  cursor: pointer;
+  padding: 0;
+  border: none;
+  background: transparent;
+  /* Nav icon styles*/
+  position: relative;
+  z-index: 999;
+  width: 40px;
+  height: 30px;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  display: none;
 }
-*/
+
+.mobile-nav-button__icon {
+  display: block;
+  position: relative;
+  width: 40px;
+  height: 5px;
+  background-color: #000;
+}
+
+.mobile-nav-button__icon::after,
+.mobile-nav-button__icon::before {
+  position: absolute;
+  content: "";
+  width: 40px;
+  height: 5px;
+  background-color: #000;
+  /* Трансформация при закрывании */
+  -webkit-transition: top 0.15s ease-in 0.15s, -webkit-transform 0.15s ease-in;
+  transition: top 0.15s ease-in 0.15s, -webkit-transform 0.15s ease-in;
+  -o-transition: transform 0.15s ease-in, top 0.15s ease-in 0.15s;
+  transition: transform 0.15s ease-in, top 0.15s ease-in 0.15s;
+  transition: transform 0.15s ease-in, top 0.15s ease-in 0.15s, -webkit-transform 0.15s ease-in;
+}
+
+.mobile-nav-button__icon::before {
+  left: 0;
+  top: -10px;
+}
+
+.mobile-nav-button__icon::after {
+  left: 0;
+  top: 10px;
+}
+
+.mobile-nav-button__icon.active {
+  background-color: transparent;
+}
+
+.mobile-nav-button__icon.active::before {
+  -webkit-transform: rotate(45deg);
+      -ms-transform: rotate(45deg);
+          transform: rotate(45deg);
+  top: 0;
+  /* Трансформация при открывании */
+  -webkit-transition: top 0.15s linear, -webkit-transform 0.15s ease-in 0.15s;
+  transition: top 0.15s linear, -webkit-transform 0.15s ease-in 0.15s;
+  -o-transition: top 0.15s linear, transform 0.15s ease-in 0.15s;
+  transition: top 0.15s linear, transform 0.15s ease-in 0.15s;
+  transition: top 0.15s linear, transform 0.15s ease-in 0.15s, -webkit-transform 0.15s ease-in 0.15s;
+}
+
+.mobile-nav-button__icon.active::after {
+  -webkit-transform: rotate(-45deg);
+      -ms-transform: rotate(-45deg);
+          transform: rotate(-45deg);
+  top: 0;
+  /* Трансформация при открывании */
+  -webkit-transition: top 0.15s linear, -webkit-transform 0.15s ease-in 0.15s;
+  transition: top 0.15s linear, -webkit-transform 0.15s ease-in 0.15s;
+  -o-transition: top 0.15s linear, transform 0.15s ease-in 0.15s;
+  transition: top 0.15s linear, transform 0.15s ease-in 0.15s;
+  transition: top 0.15s linear, transform 0.15s ease-in 0.15s, -webkit-transform 0.15s ease-in 0.15s;
+}
 
 .footer {
   background: #245852;
@@ -1038,6 +1071,120 @@ h6 {
   }
 }
 
+.mobile-nav-wrapper {
+  display: none;
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(255, 255, 255, 0.93);
+  z-index: 99;
+  padding: 50px 15px;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  text-align: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  min-height: 50%;
+}
+
+.mobile-nav {
+  padding-bottom: 50px;
+}
+
+.mobile-nav__logo {
+  padding-bottom: 50px;
+}
+
+.mobile-nav__list {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  gap: 20px;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  font-size: 24px;
+}
+
+.mobile-nav__link:hover {
+  text-decoration: underline;
+  color: #01996D;
+}
+
+.mobile-login {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.mobile-login__link {
+  display: inline-block;
+  font-family: "Lato";
+  line-height: 1.25;
+  font-style: normal;
+  font-weight: 400;
+  color: #000000;
+  margin-bottom: 15px;
+}
+
+.mobile-login__link:hover {
+  text-decoration: underline;
+  color: #01996D;
+}
+
+.btn {
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  display: inline-block;
+}
+
+.btn__link {
+  background: #01996D;
+  border: 1px solid #01996D;
+  border-radius: 4px;
+  padding: 13px 50px;
+  font-weight: 400;
+  line-height: 1.25;
+  text-align: center;
+  color: #FFFFFF;
+}
+
+.btn__link:hover {
+  -webkit-box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+          box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  opacity: 0.8;
+}
+
+.mobile-nav-wrapper.active {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.no-scroll {
+  overflow: hidden;
+}
+
 .button-green {
   display: inline-block;
   min-height: 51px;
@@ -1099,9 +1246,15 @@ h6 {
 }
 
 @media (max-width: 61.99875em) {
-  .menu__list {
-    -ms-flex-wrap: wrap;
-        flex-wrap: wrap;
+  .header__menu,
+  .header__action {
+    display: none;
+  }
+
+  .mobile-nav-button {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
   }
 
   .footer__list {
@@ -1217,12 +1370,6 @@ h6 {
     -webkit-box-flex: 0;
         -ms-flex: 0 1 auto;
             flex: 0 1 auto;
-  }
-}
-
-@media (max-width: 41.5em) {
-  .menu {
-    display: none;
   }
 }
 

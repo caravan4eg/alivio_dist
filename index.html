@@ -6,21 +6,20 @@
 	<meta charset="UTF-8">
 	<meta name="format-detection" content="telephone=no">
 	<!-- <style>body{opacity: 0;}</style> -->
-	<link rel="stylesheet" href="css/style.min.css?_v=20220616140622">
+	<link rel="stylesheet" href="css/style.min.css?_v=20220616212900">
 	<link rel="shortcut icon" href="favicon.ico">
 	<!-- <meta name="robots" content="noindex, nofollow"> -->
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 
 <body>
-	<div class="wrapper">
+	<class="wrapper">
 		<header class="header">
 			<div class="header__container">
 				<a href="#" class="header__logo"><img src="img/header/logo.svg" alt="logo"></a>
 
 
 				<div class="header__menu menu">
-					<button type="button" class="menu__icon icon-menu"><span></span></button>
 					<nav class="menu__body">
 						<ul class="menu__list">
 							<li class="menu__item"><a href="" class="menu__link">Why Alivio</a></li>
@@ -37,11 +36,37 @@
 					<div class="header__trial button-green">
 						<a href="#" class="button-green__link"> Start Trial </a>
 					</div>
+
 				</div>
+				<!-- вариант по вебкадеми -->
+				<button type="button" class="mobile-nav-button">
+					<span class="mobile-nav-button__icon"></span>
+				</button>
+
 
 			</div>
 		</header>
+
+
 		<main class="page">
+			<section class="mobile-nav-wrapper">
+				<a href="#" class="mobile-nav__logo"><img src="img/header/logo.svg" alt="logo"></a>
+
+				<nav class="mobile-nav">
+					<ul class="mobile-nav__list">
+						<li class="mobile-nav__item"><a href="" class="mobile-nav__link">Why Alivio</a></li>
+						<li class="mobile-nav__item"><a href="" class="mobile-nav__link">Solutions</a></li>
+						<li class="mobile-nav__item"><a href="" class="mobile-nav__link">Community</a></li>
+						<li class="mobile-nav__item"><a href="" class="mobile-nav__link">Pricing</a></li>
+					</ul>
+				</nav>
+
+				<div class="mobile-login">
+					<a href="#" class="mobile-login__link">Sign in</a>
+					<a href="#" class="btn__link"> Start Trial </a>
+				</div>
+
+			</section>
 
 			<section class="main-block">
 				<div class="main-block__container">
@@ -202,8 +227,8 @@
 
 			</div>
 		</footer>
-	</div>
-	<!-- <div id="popup" aria-hidden="true" class="popup">
+		</div>
+		<!-- <div id="popup" aria-hidden="true" class="popup">
 	<div class="popup__wrapper">
 		<div class="popup__content">
 			<button data-close type="button" class="popup__close">Закрыть</button>
@@ -213,7 +238,7 @@
 		</div>
 	</div>
 </div> -->
-	<script src="js/app.min.js?_v=20220616140622"></script>
+		<script src="js/app.min.js?_v=20220616212900"></script>
 </body>
 
 </html>
